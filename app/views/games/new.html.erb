@@ -1,0 +1,18 @@
+<h1>NEW GAME</h1>
+<div class = "d-flex flex-row">
+<% @array.each do |letter| %>
+  <button type="button" class="m-2 btn btn-primary btn-lg">
+    <%=letter%>
+  </button>
+  <% end %>
+</div>
+
+<div class = "m-4">
+  <p>What is the longest word you can find?</p>
+  <form method ="post" action="/score">
+    <input type="text" name="word" id="word">
+    <input type="submit" name="play" value="Play!">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :grid, @array %>
+  </form>
+</div>
